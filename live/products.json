@@ -72,22 +72,5 @@
       "bestseller"
     ],
     "sort_order": 40
-  },
-  {
-    "id": "publish-test-marker",
-    "title": "PUBLISH TEST MARKER",
-    "category": "gels",
-    "price": 1,
-    "subtitle": "",
-    "sku": null,
-    "volume": null,
-    "price_old": null,
-    "description": "",
-    "in_stock": true,
-    "photos": [],
-    "videos": [],
-    "hero_video": null,
-    "tags": [],
-    "sort_order": 999
   }
 ]

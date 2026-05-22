@@ -13,7 +13,9 @@
     "photos": [],
     "videos": [],
     "hero_video": null,
-    "tags": ["bestseller"],
+    "tags": [
+      "bestseller"
+    ],
     "sort_order": 10
   },
   {
@@ -30,7 +32,9 @@
     "photos": [],
     "videos": [],
     "hero_video": null,
-    "tags": ["new"],
+    "tags": [
+      "new"
+    ],
     "sort_order": 20
   },
   {
@@ -64,7 +68,9 @@
     "photos": [],
     "videos": [],
     "hero_video": null,
-    "tags": ["bestseller"],
+    "tags": [
+      "bestseller"
+    ],
     "sort_order": 40
   }
 ]

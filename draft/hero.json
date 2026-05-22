@@ -4,13 +4,13 @@
   "video_poster": null,
   "eyebrow": "Волшебство ваших ногтей",
   "title": "Откройте мир SoLaNaiL",
-  "subtitle": "Перламутровая коллекция и графитовые оттенки",
+  "subtitle": "Премиум маникюр",
   "cta_text": "Купить сейчас",
   "cta_link": "#catalog",
   "badge": {
-    "enabled": false,
-    "line1": "",
-    "line2": "",
-    "color": "rose"
+    "enabled": true,
+    "line1": "Весенняя",
+    "line2": "распродажа -20%",
+    "color": "red"
   }
 }
