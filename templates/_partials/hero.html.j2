@@ -1,0 +1,31 @@
+<section class="relative z-10 max-w-[1240px] mx-auto px-6 mt-10">
+  <div class="hero-card relative overflow-hidden p-10 md:p-16 min-h-[520px] md:min-h-[560px]">
+    {% if hero.banner_video %}
+    <video class="hero-bg-video" autoplay muted loop playsinline {% if hero.video_poster %}poster="/media/hero/{{ hero.video_poster }}"{% endif %}>
+      <source src="/media/hero/{{ hero.banner_video }}" type="video/mp4">
+    </video>
+    {% elif hero.banner_image %}
+    <img class="hero-bg-img" src="/media/hero/{{ hero.banner_image }}" alt="">
+    {% endif %}
+
+    <div class="relative z-10 max-w-[52%]">
+      {% if hero.eyebrow %}<div class="eyebrow">— {{ hero.eyebrow }}</div>{% endif %}
+      <h1 class="serif text-[var(--ink)] leading-[.95] mt-6" style="font-size:clamp(2.6rem, 5.4vw, 5.4rem)">
+        <span class="serif-it font-medium">{{ hero.title }}</span>
+      </h1>
+      {% if hero.subtitle %}
+      <p class="serif-it text-[var(--ink-soft)] mt-6 text-lg md:text-xl max-w-sm">{{ hero.subtitle }}</p>
+      {% endif %}
+      <div class="mt-8">
+        <a href="{{ hero.cta_link }}" class="btn-rose inline-block">{{ hero.cta_text }}</a>
+      </div>
+    </div>
+
+    {% if hero.badge.enabled %}
+    <div class="hero-badge" data-color="{{ hero.badge.color }}">
+      <div class="b1">{{ hero.badge.line1 }}</div>
+      <div class="b2">{{ hero.badge.line2 }}</div>
+    </div>
+    {% endif %}
+  </div>
+</section>

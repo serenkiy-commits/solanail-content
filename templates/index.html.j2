@@ -1,0 +1,48 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+{% include "_partials/hero.html.j2" %}
+
+<section id="catalog" class="relative z-10 max-w-[1240px] mx-auto px-6 mt-28">
+  <div class="text-center max-w-lg mx-auto">
+    <div class="eyebrow">Каталог</div>
+    <h2 class="serif-it text-[var(--ink)] mt-4" style="font-size:clamp(2rem,3.6vw,3.4rem)">Товары для маникюра</h2>
+    <div class="dot-divider"></div>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7 mt-12">
+    {% for product in products|sort(attribute='sort_order') %}
+      {% include "_partials/product-card.html.j2" %}
+    {% endfor %}
+  </div>
+</section>
+
+<section id="delivery" class="relative z-10 max-w-[1240px] mx-auto px-6 mt-28">
+  <div class="text-center max-w-lg mx-auto">
+    <div class="eyebrow">Доставка</div>
+    <h2 class="serif-it text-[var(--ink)] mt-4" style="font-size:clamp(2rem,3.6vw,3.4rem)">По всей России</h2>
+    <div class="dot-divider"></div>
+  </div>
+  <div class="grid md:grid-cols-3 gap-7 mt-12 max-w-3xl mx-auto">
+    {% for opt in site.delivery.options %}
+    <div class="pcard p-8 relative overflow-hidden">
+      <div class="vein"></div>
+      <h3 class="serif-it text-2xl text-[var(--ink)]">{{ opt.name }}</h3>
+      <p class="text-sm text-[var(--ink-soft)] mt-2">{{ opt.cost }}</p>
+      <p class="text-sm text-[var(--ink-soft)]">{{ opt.days }} дн.</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% if site.wholesale.terms %}
+<section id="wholesale" class="relative z-10 max-w-[1240px] mx-auto px-6 mt-28 text-center">
+  <div class="eyebrow">Оптовые поставки</div>
+  <h2 class="serif-it text-[var(--ink)] mt-4" style="font-size:clamp(2rem,3.6vw,3.4rem)">Для салонов и студий</h2>
+  <p class="mt-6 text-lg max-w-2xl mx-auto text-[var(--ink-soft)]">{{ site.wholesale.terms }}</p>
+  {% if site.contacts.telegram %}
+  <a href="{{ site.contacts.telegram }}" class="btn-rose inline-block mt-6">Запросить условия</a>
+  {% endif %}
+</section>
+{% endif %}
+{% endblock %}

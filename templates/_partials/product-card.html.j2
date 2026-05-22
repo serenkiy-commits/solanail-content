@@ -1,0 +1,40 @@
+<article class="pcard p-5 flex flex-col" data-product-id="{{ product.id }}">
+  <div class="relative aspect-[4/5] flex items-center justify-center overflow-hidden">
+    {% if product.photos %}
+      <img src="/media/products/thumbs/{{ product.photos[0]|replace('.jpg','_800.webp') }}"
+           srcset="/media/products/thumbs/{{ product.photos[0]|replace('.jpg','_400.webp') }} 400w,
+                   /media/products/thumbs/{{ product.photos[0]|replace('.jpg','_800.webp') }} 800w"
+           sizes="(max-width: 768px) 50vw, 25vw"
+           alt="{{ product.title }}"
+           class="w-full h-full object-contain product-photo"
+           loading="lazy">
+      {% if product.hero_video %}
+      <video class="product-hover-video" muted loop playsinline preload="none" data-src="/media/products/videos/{{ product.hero_video }}"></video>
+      {% endif %}
+    {% else %}
+      <div class="photo-placeholder w-full h-full flex items-center justify-center serif-it text-4xl text-[var(--rose-dust)]">{{ product.title[:1] }}</div>
+    {% endif %}
+    {% set tag_labels = {'new':'новинка','bestseller':'хит','sale':'распродажа'} %}
+    {% if product.tags %}
+    <div class="absolute top-2 left-2 flex gap-1 flex-col">
+      {% for tag in product.tags %}
+      <span class="t-tag t-tag-{{ tag }} text-[9px] tracking-[.12em] uppercase px-2 py-1 rounded">{{ tag_labels.get(tag, tag) }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="mt-4">
+    <div class="serif-it text-lg text-[var(--ink)]">{{ product.title }}</div>
+    {% if product.subtitle %}<div class="caption mt-1">{{ product.subtitle }}</div>{% endif %}
+    <div class="flex items-baseline justify-between mt-3">
+      <span class="serif text-2xl text-[var(--ink)]">{{ product.price }} ₽
+        {% if product.price_old %}<span class="price-old text-base text-[var(--ink-mute)] line-through ml-1">{{ product.price_old }} ₽</span>{% endif %}
+      </span>
+    </div>
+    {% if product.in_stock %}
+    <button class="add-to-cart mt-4 w-full py-2.5 rounded-full border border-[rgba(176,122,92,.35)] text-[10px] tracking-[.3em] uppercase text-[var(--ink)] hover:bg-[var(--ink)] hover:text-[var(--paper)] transition" data-id="{{ product.id }}">В корзину</button>
+    {% else %}
+    <div class="out-of-stock mt-4 w-full py-2.5 text-center text-[10px] tracking-[.3em] uppercase text-[var(--ink-mute)]">Нет в наличии</div>
+    {% endif %}
+  </div>
+</article>

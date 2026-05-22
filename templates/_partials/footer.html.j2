@@ -1,0 +1,24 @@
+<footer id="contacts" class="relative z-10 mt-32 py-14 text-center border-t border-[rgba(176,122,92,.18)] bg-[rgba(251,244,236,.5)]">
+  <div class="max-w-[1240px] mx-auto px-6">
+    <div class="serif-it text-3xl mt-2 text-[var(--ink)]">SoLaNaiL</div>
+    <div class="caption mt-2">© 2026 · Маникюрный магазин</div>
+
+    <div class="contacts mt-6 flex justify-center gap-4 text-sm">
+      {% if site.contacts.telegram %}<a href="{{ site.contacts.telegram }}" class="text-[var(--rose-deep)] hover:underline">Telegram</a>{% endif %}
+      {% if site.contacts.whatsapp %}<a href="{{ site.contacts.whatsapp }}" class="text-[var(--rose-deep)] hover:underline">WhatsApp</a>{% endif %}
+      {% if site.contacts.max %}<a href="{{ site.contacts.max }}" class="text-[var(--rose-deep)] hover:underline">MAX</a>{% endif %}
+      {% if site.contacts.phone %}<a href="tel:{{ site.contacts.phone }}" class="text-[var(--ink)] hover:underline">{{ site.contacts.phone }}</a>{% endif %}
+    </div>
+
+    {% if site.legal.ooo_name %}
+    <div class="legal mt-6 text-[10px] text-[var(--ink-mute)]">
+      {{ site.legal.ooo_name }} · ИНН {{ site.legal.inn }} · ОГРН {{ site.legal.ogrn }}{% if site.legal.address %} · {{ site.legal.address }}{% endif %}
+    </div>
+    {% endif %}
+
+    <div class="sergey-credit mt-8 text-[11px] text-[var(--ink-mute)]">
+      Designed &amp; built by <a href="https://t.me/serenkiy" class="text-[var(--rose-deep)] hover:underline">Сергей Серенький</a> ·
+      <a href="https://t.me/serenkiy" class="text-[var(--rose-deep)] hover:underline">подобный сайт для вашего бизнеса →</a>
+    </div>
+  </div>
+</footer>

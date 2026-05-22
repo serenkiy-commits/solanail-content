@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>{% block title %}{{ site.seo.title or "SoLaNaiL — товары для маникюра" }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ site.seo.description }}{% endblock %}">
+{% if site.seo.yandex_verification %}<meta name="yandex-verification" content="{{ site.seo.yandex_verification }}">{% endif %}
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/site.css">
+{% block extra_head %}{% endblock %}
+</head>
+<body class="grain">
+{% include "_partials/header.html.j2" %}
+{% block content %}{% endblock %}
+{% include "_partials/footer.html.j2" %}
+{% if site.seo.yandex_metrika_id %}
+<script>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym({{ site.seo.yandex_metrika_id }},"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
+{% endif %}
+{% block extra_body %}{% endblock %}
+</body>
+</html>
