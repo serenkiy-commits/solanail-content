@@ -207,3 +207,68 @@ body{font-family:'Jost', sans-serif; overflow-x:hidden; font-weight:300; letter-
 /* Card lift on hover — works WITH stagger reveal (GSAP sets opacity=1) */
 .pcard:hover { transform: translateY(-4px); }
 .t-tag-sale { background: #fce8e8; color: #9c3a3a; }
+
+/* === B3: Microinteractions === */
+
+/* Cart-add button feedback */
+.add-to-cart {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.add-to-cart.added {
+  background: linear-gradient(135deg, #a3c08e, #7c9c6e) !important;
+  color: #fff8ef !important;
+  border-color: #7c9c6e !important;
+}
+
+@keyframes cart-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.95); }
+  60% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+.add-to-cart.popping {
+  animation: cart-pop 0.45s ease-out;
+}
+
+/* Ripple effect on cart-add click */
+.add-to-cart .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 248, 239, 0.6);
+  transform: scale(0);
+  animation: ripple-expand 0.7s ease-out;
+  pointer-events: none;
+}
+@keyframes ripple-expand {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* Loading spinner (used by JS during async actions, e.g. cart submit) */
+.solanail-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-rotate 0.8s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+@keyframes spinner-rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* Heart placeholder — for future wishlist feature */
+@keyframes heart-burst {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+.heart-icon.bursting {
+  animation: heart-burst 0.5s ease-out;
+  color: var(--rose-deep);
+}

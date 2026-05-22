@@ -88,5 +88,35 @@
         video.pause();
       });
     });
+
+    // 6. Cart-add microinteraction (B3)
+    document.querySelectorAll('.add-to-cart').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        // Ripple effect
+        var rect = btn.getBoundingClientRect();
+        var ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.left = (e.clientX - rect.left - 15) + 'px';
+        ripple.style.top = (e.clientY - rect.top - 15) + 'px';
+        ripple.style.width = ripple.style.height = '30px';
+        btn.appendChild(ripple);
+        setTimeout(function () { ripple.remove(); }, 700);
+
+        // Pop animation
+        btn.classList.add('popping');
+        setTimeout(function () { btn.classList.remove('popping'); }, 450);
+
+        // Add to "cart" — for MVP we don't have a real cart, so just show visual state
+        if (!btn.classList.contains('added')) {
+          var originalText = btn.textContent;
+          btn.classList.add('added');
+          btn.textContent = '✓ В корзине';
+          setTimeout(function () {
+            btn.classList.remove('added');
+            btn.textContent = originalText;
+          }, 1500);
+        }
+      });
+    });
   });
 })();
