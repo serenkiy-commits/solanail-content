@@ -72,5 +72,22 @@
       "bestseller"
     ],
     "sort_order": 40
+  },
+  {
+    "id": "rollback-test-v2",
+    "title": "V2 ROLLBACK TEST",
+    "category": "gels",
+    "price": 2,
+    "subtitle": "",
+    "sku": null,
+    "volume": null,
+    "price_old": null,
+    "description": "",
+    "in_stock": true,
+    "photos": [],
+    "videos": [],
+    "hero_video": null,
+    "tags": [],
+    "sort_order": 999
   }
 ]
