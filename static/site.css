@@ -163,4 +163,47 @@ body{font-family:'Jost', sans-serif; overflow-x:hidden; font-weight:300; letter-
 /* Product card tags (added in A4) */
 .t-tag-new { background: #edf6e8; color: #3e6322; }
 .t-tag-bestseller { background: #fff5e3; color: #8b6914; }
+
+/* === B2: Premium effects === */
+
+/* Spotlight glow following cursor */
+.pcard { position: relative; isolation: isolate; }
+.pcard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%),
+                              rgba(255, 250, 240, 0.22),
+                              transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+.pcard:hover::before { opacity: 1; }
+
+/* Magnetic button — smooth follow */
+.btn-rose {
+  transition: transform 0.22s cubic-bezier(0.2, 0.7, 0.2, 1),
+              box-shadow 0.3s;
+  will-change: transform;
+}
+
+/* Hover-video fade-in over still photo */
+.product-hover-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+.pcard:hover .product-hover-video { opacity: 1; }
+
+/* Card lift on hover — works WITH stagger reveal (GSAP sets opacity=1) */
+.pcard:hover { transform: translateY(-4px); }
 .t-tag-sale { background: #fce8e8; color: #9c3a3a; }
