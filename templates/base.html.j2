@@ -15,6 +15,24 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 <script src="/static/site.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OnlineStore",
+  "name": "SoLaNaiL",
+  "url": "https://solanail.ru",
+  "description": "{{ site.seo.description }}"
+  {%- if site.contacts.phone %},
+  "telephone": "{{ site.contacts.phone }}"
+  {%- endif %}
+  {%- if site.legal.address %},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ site.legal.address }}"
+  }
+  {%- endif %}
+}
+</script>
 <script src="/static/hero-liquid.js" defer></script>
 {% block extra_head %}{% endblock %}
 </head>
@@ -26,5 +44,10 @@
 <script>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym({{ site.seo.yandex_metrika_id }},"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
 {% endif %}
 {% block extra_body %}{% endblock %}
+<div id="sergey-pitch" class="sergey-pitch" aria-hidden="true">
+  <span class="sp-text">Понравился сайт? Я делаю такие же →</span>
+  <a href="https://t.me/serenkiy" class="sp-cta">Обсудить</a>
+  <button class="sp-close" aria-label="Закрыть">×</button>
+</div>
 </body>
 </html>

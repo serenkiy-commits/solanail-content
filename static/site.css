@@ -282,3 +282,61 @@ body{font-family:'Jost', sans-serif; overflow-x:hidden; font-weight:300; letter-
   /* Fallback colour while WebGL initialises (or if it fails) */
   background: linear-gradient(135deg, #efdcc2, #d9b49b, #b07a5c);
 }
+
+/* === B6: Sergey lead-magnet sticky === */
+.sergey-pitch {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 22px;
+  border-radius: 999px;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+  z-index: 100;
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+  max-width: calc(100vw - 32px);
+}
+.sergey-pitch.visible {
+  transform: translateX(-50%) translateY(0);
+}
+.sergey-pitch .sp-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sergey-pitch .sp-cta {
+  background: var(--rose-deep);
+  color: #fff8ef;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.sergey-pitch .sp-cta:hover {
+  background: #8a5c42;
+}
+.sergey-pitch .sp-close {
+  background: transparent;
+  border: none;
+  color: var(--paper);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 0 0 6px;
+  line-height: 1;
+  opacity: 0.7;
+}
+.sergey-pitch .sp-close:hover { opacity: 1; }
+
+@media (max-width: 480px) {
+  .sergey-pitch { font-size: 12px; padding: 10px 14px; }
+  .sergey-pitch .sp-text { max-width: 50vw; }
+}

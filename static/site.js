@@ -118,5 +118,40 @@
         }
       });
     });
+
+    // 7. Sergey sticky banner (B6)
+    var pitch = document.getElementById('sergey-pitch');
+    if (pitch) {
+      var dismissedKey = 'solanail-sergey-pitch-dismissed';
+      var dismissedAt = parseInt(localStorage.getItem(dismissedKey) || '0', 10);
+      var thirtyDays = 30 * 24 * 60 * 60 * 1000;
+      var stillDismissed = (Date.now() - dismissedAt) < thirtyDays;
+
+      if (!stillDismissed) {
+        var shown = false;
+        function checkScroll() {
+          if (shown) return;
+          var max = document.body.scrollHeight - window.innerHeight;
+          if (max <= 0) return;
+          var pct = window.scrollY / max;
+          if (pct > 0.55) {
+            pitch.classList.add('visible');
+            pitch.setAttribute('aria-hidden', 'false');
+            shown = true;
+            window.removeEventListener('scroll', checkScroll);
+          }
+        }
+        window.addEventListener('scroll', checkScroll, { passive: true });
+      }
+
+      var closeBtn = pitch.querySelector('.sp-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          pitch.classList.remove('visible');
+          pitch.setAttribute('aria-hidden', 'true');
+          localStorage.setItem(dismissedKey, String(Date.now()));
+        });
+      }
+    }
   });
 })();
