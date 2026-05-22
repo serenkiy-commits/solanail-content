@@ -6,18 +6,17 @@
     "category": "gel-lak",
     "sku": "PRL-45",
     "volume": "10 мл",
-    "price": 590,
+    "price": 690,
     "price_old": null,
-    "description": "Перламутровый графитовый оттенок с холодным подтоном.",
+    "description": "Перламутровый графитовый оттенок с холодным подтоном. Однослойное покрытие, плотная пигментация.",
     "in_stock": true,
-    "tags": [
-      "bestseller",
-      "sale"
-    ],
-    "sort_order": 10,
     "photos": [],
     "videos": [],
-    "hero_video": null
+    "hero_video": null,
+    "tags": [
+      "bestseller"
+    ],
+    "sort_order": 10
   },
   {
     "id": "butterfly-set",
@@ -73,24 +72,5 @@
       "bestseller"
     ],
     "sort_order": 40
-  },
-  {
-    "id": "a16-sample",
-    "title": "A16 Smoke Sample",
-    "subtitle": "Ð¢ÐµÑÑÐ¾Ð²ÑÐ¹ ÑÐ¾Ð²Ð°Ñ",
-    "category": "gels",
-    "sku": null,
-    "volume": null,
-    "price": 999,
-    "price_old": null,
-    "description": "Ð¡Ð¾Ð·Ð´Ð°Ð½ Ð² smoke-ÑÐµÑÑÐµ",
-    "in_stock": false,
-    "tags": [],
-    "sort_order": 50,
-    "photos": [
-      "a16-sample-1.jpg"
-    ],
-    "videos": [],
-    "hero_video": null
   }
 ]
