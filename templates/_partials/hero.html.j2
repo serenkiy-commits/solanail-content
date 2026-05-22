@@ -6,6 +6,8 @@
     </video>
     {% elif hero.banner_image %}
     <img class="hero-bg-img" src="/media/hero/{{ hero.banner_image }}" alt="">
+    {% else %}
+    <canvas class="hero-liquid" aria-hidden="true"></canvas>
     {% endif %}
 
     <div class="relative z-10 max-w-[52%]">
